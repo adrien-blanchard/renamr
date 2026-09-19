@@ -75,10 +75,10 @@ For upgrade safety, diagnostic logs, transaction journals, and the single-instan
 
 ## Development setup
 
-Python 3.11 x64 is required. From PowerShell at the repository root:
+Python 3.13 x64 is required. From PowerShell at the repository root:
 
 ```powershell
-py -3.11 -m venv .venv
+py -3.13 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e ".[dev]"
 .\.venv\Scripts\python.exe batch_renamer.py
 ```
@@ -103,7 +103,7 @@ Tests must use temporary directories. Do not point automated tests at production
 
 ## Build the Windows release
 
-The build script creates and reuses `.venv-build` in the repository, runs the tests, builds a PyInstaller standalone `onedir` bundle, smoke-tests the packaged executable, creates a portable ZIP, and builds the installer with Inno Setup. Inno Setup is required by default; the build fails if `ISCC.exe` is unavailable unless `-SkipInstaller` is specified.
+The build script creates and reuses `.venv-build313` in the repository, runs the tests, builds a PyInstaller standalone `onedir` bundle, smoke-tests the packaged executable, creates a portable ZIP, and builds the installer with Inno Setup. Inno Setup is required by default; the build fails if `ISCC.exe` is unavailable unless `-SkipInstaller` is specified.
 
 ```powershell
 PowerShell -ExecutionPolicy Bypass -File .\scripts\build_windows.ps1
@@ -112,7 +112,7 @@ PowerShell -ExecutionPolicy Bypass -File .\scripts\build_windows.ps1
 Useful options:
 
 ```powershell
-# Reuse dependencies already installed in .venv-build
+# Reuse dependencies already installed in .venv-build313
 .\scripts\build_windows.ps1 -SkipDependencyInstall
 
 # Build without running pytest (not recommended for a release)

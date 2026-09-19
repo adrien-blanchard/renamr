@@ -38,10 +38,10 @@ Releases are unsigned, so Windows may display an unknown-publisher warning.
 
 ## From source
 
-Python 3.11 on Windows:
+Python 3.13 on Windows:
 
 ```powershell
-py -3.11 -m venv .venv
+py -3.13 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -e ".[dev]"
 .\.venv\Scripts\python.exe batch_renamer.py
 .\.venv\Scripts\python.exe -m pytest

@@ -21,7 +21,7 @@ $iconPath = Join-Path $projectRoot 'assets\Renamr.ico'
 $iconGeneratorPath = Join-Path $projectRoot 'scripts\generate_icon.py'
 $runtimeAssetsPath = Join-Path $projectRoot 'sequence_renamer\assets'
 $runtimeSvgPath = Join-Path $runtimeAssetsPath 'renamr.svg'
-$buildVenvPath = Join-Path $projectRoot '.venv-build'
+$buildVenvPath = Join-Path $projectRoot '.venv-build313'
 $buildPython = Join-Path $buildVenvPath 'Scripts\python.exe'
 $artifactRoot = Join-Path $projectRoot 'artifacts'
 
@@ -227,20 +227,20 @@ $portableZipPath = Join-Path $runRoot "$appName-$appVersion-win-x64-portable.zip
 if (-not (Test-Path -LiteralPath $buildPython -PathType Leaf)) {
     $pythonLauncher = Get-Command 'py.exe' -ErrorAction SilentlyContinue
     if (-not $pythonLauncher) {
-        throw 'Python Launcher for Windows was not found. Install 64-bit Python 3.11 and try again.'
+        throw 'Python Launcher for Windows was not found. Install 64-bit Python 3.13 and try again.'
     }
 
     Invoke-CheckedCommand -FilePath $pythonLauncher.Source -CommandArguments @(
-        '-3.11',
+        '-3.13',
         '-m',
         'venv',
         $buildVenvPath
-    ) -Description 'Creating .venv-build with Python 3.11'
+    ) -Description 'Creating .venv-build313 with Python 3.13'
 }
 
-$pythonCheck = & $buildPython -c "import struct, sys; raise SystemExit(0 if sys.version_info[:2] == (3, 11) and struct.calcsize('P') == 8 else 1)"
+$pythonCheck = & $buildPython -c "import struct, sys; raise SystemExit(0 if sys.version_info[:2] == (3, 13) and struct.calcsize('P') == 8 else 1)"
 if ($LASTEXITCODE -ne 0) {
-    throw '.venv-build must use 64-bit Python 3.11. Remove that build environment manually, then rerun this script.'
+    throw '.venv-build313 must use 64-bit Python 3.13. Remove that build environment manually, then rerun this script.'
 }
 
 if (-not $SkipDependencyInstall) {
