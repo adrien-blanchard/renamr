@@ -324,6 +324,7 @@ Copy-Item -LiteralPath (Join-Path $projectRoot 'docs\third-party.md') -Destinati
 if (Test-Path -LiteralPath (Join-Path $projectRoot 'LICENSE')) {
     Copy-Item -LiteralPath (Join-Path $projectRoot 'LICENSE') -Destination $bundlePath
 }
+Copy-Item -LiteralPath (Join-Path $projectRoot 'NOTICE') -Destination $bundlePath
 
 Write-Host '==> Creating the portable ZIP'
 if (Test-Path -LiteralPath $portableZipPath) {

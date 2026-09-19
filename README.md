@@ -49,3 +49,7 @@ py -3.13 -m venv .venv
 
 The application works locally; it has no accounts, telemetry or upload service.
 [Third-party notices](docs/third-party.md) cover Qt/PySide6 and the bundled Inter font.
+
+## License
+
+Original application code: [Apache-2.0](LICENSE), copyright Adrien Blanchard. Qt/PySide6, Inter and other bundled components retain their own licenses; see the third-party notices above.
